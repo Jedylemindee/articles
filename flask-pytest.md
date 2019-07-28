@@ -241,13 +241,14 @@ def test_mymodel_serializer():
     assert serializer.errors = {}
     assert serializer.data.name == form_data["name"]
     assert serializer.data.description == form_data["description"]
+```
         
 However, this method is not flawless. First, it would be nice to test our serializer
 with our model, so that if we need to add another attribute to the model, we don't
 need to add it in 'form_data' too. Moreover, we always have to specify some dummy data
 when instanciating a model, such as a dummy 'name' attribute, whereas we just need to launch
 our tests with 'some dummy instance of MyModel', whatever its attributes are.
-```
+
 
 #### Better testing serializers with a Dictionnary Mixin
 
