@@ -14,7 +14,7 @@ extensions. In particular, we will create a set of pytest *fixtures* to cover mo
 ### Prerequisites
 
 I assume that you already have some knowledge of pytest and particularly the notion of *fixtures*. Basically, a fixture
-defines a resource that a test can use. If you are not familiar with that, I suggest you to check 
+defines a resource that a test can use. If you are not familiar with that, I suggest you to read 
 [pytest's documentation](https://docs.pytest.org/en/latest/fixture.html) 
 
 I also assume that your Flask project follows the application factory pattern. It means you should have a set of extensions declared in one (or multiple) module(s) :
@@ -49,7 +49,7 @@ def create_app(config):
 ```        
 
 If this project structure sounds like greek to you, you should definitely check 
-https://flask.palletsprojects.com/en/1.1.x/patterns/appfactories/
+Flask's doc about [app factory patterns](https://flask.palletsprojects.com/en/1.1.x/patterns/appfactories/).
 
 ## First fixtures : setup the environment
 
