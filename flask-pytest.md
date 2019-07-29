@@ -9,16 +9,15 @@ there are high chances you end up using the following add-ons :
 If you don't use these packages, I strongly recommend you to have a look at them and not reinvent the wheel.
 
 This article will give you some insights about how to efficiently test a Flask application alongside these 
-extensions. In particular, we will create a set of Pytest *fixtures* to cover most of the possible test cases.
+extensions. In particular, we will create a set of pytest *fixtures* to cover most of the possible test cases.
 
 ### Prerequisites
 
-I assume that you already have some knowledge of pytest and particularly the notion of *fixtures'. Basically, a fixture
-defines a resource that a test can use. If you are not familiar with that, I suggest you to check https://docs.pytest.org/en/latest/fixture.html
+I assume that you already have some knowledge of pytest and particularly the notion of *fixtures*. Basically, a fixture
+defines a resource that a test can use. If you are not familiar with that, I suggest you to check 
+[pytest's documentation](https://docs.pytest.org/en/latest/fixture.html) 
 
-I also assume that your Flask project follows the application factory pattern.
-
-It means you should have a set of extensions declared in one (or multiple) separate module(s) :
+I also assume that your Flask project follows the application factory pattern. It means you should have a set of extensions declared in one (or multiple) module(s) :
 
 ```python
 # extensions.py
@@ -31,7 +30,7 @@ migrate = Migrate()
 marsh = Marshmallow()
 ```
     
-Then you should define an application factory : 
+Then you should define an application factory in another module : 
 
 ```python
 # app.py
