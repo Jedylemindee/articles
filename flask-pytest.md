@@ -76,7 +76,7 @@ def test_client(app):
     return app.test_client()
 ```
 
-This way, you can easily test your flask routes :
+This way, you can easily test your routes :
 
 ```python
 # test_routes.py
@@ -128,10 +128,10 @@ def db(app, request):
         
 This fixture has a session-wide scope, which means it will be computed only once for all the tests.
 What it basically does is it binds our 'db' object to our app fixture, then executes all the migrations
-with flask_migrate_upgrade(). This line could have been replaced by a simple '_db.create_all()', 
-but this call to Flask-Migrate allows to test our migrations on the fly.
+with *flask_migrate_upgrade()*. This line could have been replaced by a simple *_db.create_all()*, 
+but this call to Flask-Migrate allows to test migrations on the fly.
 
-The next step is to create a 'session' fixture. This fixture will be used in each of our tests are ensure 
+The next step is to create a *session* fixture. This fixture will be used in each of our tests are ensure 
 they are isolated from each other. 
 
 ```python
@@ -157,11 +157,11 @@ def session(db, request):
 
 Each time this fixture is computed (i.e during each test), the following things happen : 
 * Before the test, the database is empty
-* The call to 'begin_nested()' creates a nested transaction that expires only when a 'rollback()' 
-or a 'commit()' is called. However, we do not want a commit to be triggered, since it would actually push 
-database changes in the database and therefore impact other tests. In order to prevent this, we simply
-patch the 'session.commit' method with 'session.flush', which is transaction-safe. This way we can call
-db.session.commit in our project without worrying about tests.
+* The call to *begin_nested()* creates a nested transaction that expires only when a *session.rollback()* 
+or a *session.commit()* is called. However, we do not want to allow commits to be triggered, since it would actually push 
+changes in the database and therefore impact other tests. In order to prevent this, we simply
+patch the *session.commit* method with *session.flush*, which is transaction-safe. This way we can call
+*db.session.commit* in our project without worrying about tests.
 * When the test ends, a rollback is issued, clearing the database for further tests.
 
 
@@ -191,7 +191,7 @@ class MyModel(db.Model):
  ### Usage: 
  # instance = MyModel(name="...", description="...", is_active=True)
  # db.session.add(instance)
- # ` # db.session.commit()
+ # db.session.commit()
 ```    
             
 And a corresponding serializer created with Marshmallow-SQLAlchemy:
