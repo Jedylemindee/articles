@@ -245,8 +245,8 @@ def test_mymodel_serializer():
 However, this method is not flawless. First, it would be nice to test our serializer
 with our model, so that if we need to add another attribute to the model, we don't
 need to add it in 'form_data' too. Moreover, we always have to specify some dummy data
-when instanciating a model, such as a dummy 'name' attribute, whereas we just need to launch
-our tests with 'some dummy instance of MyModel', whatever its attributes are.
+when instanciating a model, such as a dummy 'name' attribute, but what we would need
+for our tests is just some dummy instance of MyMode, whatever its attributes are.
 
 
 #### Better testing serializers with a Dictionnary Mixin
