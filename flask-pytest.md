@@ -108,7 +108,7 @@ TEST_CONFIG = {
 
 Then let's add a *db* fixture:
 
-```
+```python
 # conftest.py
 from .extensions import db as _db
 from flask_migrate import upgrade as flask_migrate_upgrade
@@ -224,7 +224,7 @@ def test_mymodel_str_method(session):
     assert str(instance) == instance.name
 
 def test_mymodel_save_method(session):
-    instance = MyModel(name="Test", description"Lorem Ipsum...", is_active=True)
+    instance = MyModel(name="Test", description="Lorem Ipsum...", is_active=True)
     instance.save()
     session.flush()
     assert MyModel.query.filter_by(name="Test").first() == instance
