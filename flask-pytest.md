@@ -282,7 +282,7 @@ Then we can rewrite our last test :
 # test_models.py    
 def test_mymodel_serializer():
     form_data = MyModel(name="Test", description="Test desc").as_dict()
-    serializer = MyModelSerializer().load(form_date)
+    serializer = MyModelSerializer().load(form_data)
     assert serializer.errors = {}
     assert serializer.data.name == form_data["name"]
     assert serializer.data.description == form_data["description"]
