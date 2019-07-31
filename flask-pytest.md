@@ -319,7 +319,7 @@ class MyModelFactory(factory.alchemy.SQLAlchemyModelFactory):
         model = MyModel
         sqlalchemy_session = db.session
         
-    is_active = True # we want this attribute to be False by default
+    is_active = True # we want this attribute to be True by default
     name = factory.faker.Faker("name") # each call will generate a fake name
     description = factory.fuzzy.FuzzyText() # same with another method
 ```
